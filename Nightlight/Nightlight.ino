@@ -1,5 +1,7 @@
 #include <Adafruit_NeoPixel.h>
 
+/* SCROLL TO THE loop() function if you're here; all the nightlight customization happens in the loop() function */
+
 #define PIN 8
 Adafruit_NeoPixel strip = Adafruit_NeoPixel(1, PIN, NEO_GRB + NEO_KHZ800);
 
