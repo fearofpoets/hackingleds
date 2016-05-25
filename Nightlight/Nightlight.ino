@@ -6,7 +6,6 @@
 Adafruit_NeoPixel strip = Adafruit_NeoPixel(1, PIN, NEO_GRB + NEO_KHZ800);
 
 enum Color { aqua, blue, brown, green, orange, pink, purple, red, teal, white, yellow};
-enum Speed { fast, medium, slow };
 
 void fadeOnce(Color color1, Color color2, uint16_t steps = 100, uint8_t interval = 50) {
   // Calculate linear interpolation between Color1 and Color2
@@ -25,7 +24,7 @@ void fadeOnce(Color color1, Color color2, uint16_t steps = 100, uint8_t interval
     
     strip.setPixelColor(0, strip.Color(red, green, blue));
     strip.show();
-    delay(100);
+    delay(50);
   }
 }
 
@@ -177,7 +176,7 @@ void showColor(Color color) {
    uint32_t c_translated = translateColor(color);
    strip.setPixelColor(0, c_translated);
    strip.show();
-   delay(2000);
+   delay(1500);
    return; 
 }
 
@@ -206,22 +205,11 @@ uint32_t translateColor(Color color) {
     case yellow:
       return strip.Color(255,255,0);
     case white:
-      return strip.Color(0, 0, 0); 
+      return strip.Color(255, 255, 255); 
     default: // set to white
       return strip.Color(0, 0, 0); 
   }
 }
 
-uint16_t translateSpeed(Speed speed) {
-  switch (speed) {
-    case fast:
-      return 500;
-    case medium:
-      return 2000;
-    case slow:
-      return 10000;
-    default:
-      return 100;
-  }
-}
+
 
